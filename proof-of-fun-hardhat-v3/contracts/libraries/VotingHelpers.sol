@@ -105,7 +105,7 @@ library AnonymityHelper {
         address _voter,
         uint256 _eventId,
         uint256 _categoryId
-    ) internal pure returns (bytes32) {
+    ) internal view returns (bytes32) {
         return keccak256(abi.encodePacked(
             "NULLIFIER",
             _voter,
