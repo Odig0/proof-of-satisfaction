@@ -130,7 +130,9 @@ export class FilecoinStorageService {
 
     console.log(`   Tamaño: ${data.length} bytes`);
 
-    const { pieceCid, size } = await this.synapse.storage.upload(data);
+    const uploadResult = await this.synapse.storage.upload(data);
+    const pieceCid = uploadResult.pieceCid;
+    const size = uploadResult.size;
 
     console.log(`✅ Evento almacenado en Filecoin`);
     console.log(`   PieceCID: ${pieceCid}`);
@@ -163,7 +165,9 @@ export class FilecoinStorageService {
     const jsonString = JSON.stringify(proofData, null, 2);
     const data = new TextEncoder().encode(jsonString);
 
-    const { pieceCid, size } = await this.synapse.storage.upload(data);
+    const uploadResult = await this.synapse.storage.upload(data);
+    const pieceCid = uploadResult.pieceCid;
+    const size = uploadResult.size;
 
     console.log(`✅ Resultados almacenados en Filecoin`);
     console.log(`   PieceCID: ${pieceCid}`);
@@ -190,7 +194,9 @@ export class FilecoinStorageService {
     const jsonString = JSON.stringify(catalog, null, 2);
     const data = new TextEncoder().encode(jsonString);
 
-    const { pieceCid, size } = await this.synapse.storage.upload(data);
+    const uploadResult = await this.synapse.storage.upload(data);
+    const pieceCid = uploadResult.pieceCid;
+    const size = uploadResult.size;
 
     console.log(`✅ Catálogo almacenado en Filecoin`);
     console.log(`   PieceCID: ${pieceCid}`);
